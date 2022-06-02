@@ -29,7 +29,12 @@ public class UserController {
 
     @PostMapping("/register")
     public Integer register(@RequestBody User user) {
-        return userService.register(user);
+        return userService.save(user);
+    }
+
+    @DeleteMapping("/{userId}")
+    public Integer delete(@PathVariable Integer userId) {
+        return userMapper.deleteByUserId(userId);
     }
 
 
